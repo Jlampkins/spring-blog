@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <th:block th:replace="fragments/head :: header('Home')"/>
+</head>
+<body>
+<th:block th:replace="fragments/navbar :: nav"/>
+
+
+<ul>
+    <li th:each="post : ${posts}">
+        <a th:href="@{'/posts/edit/' + ${post.getId()}}"> <h1 th:text="${post.title}"></h1></a>
+        <h3 th:text="${post.body}"></h3>
+        <!--<h3 th:text="${post.authorEmail}"></h3>-->
+    </li>
+
+</ul>
+
+
+
+</body>
+</html>

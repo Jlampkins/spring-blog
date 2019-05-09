@@ -1,0 +1,11 @@
+javascript files go in here
+CSS files go in here
+imgs go in here
+pdf goes in in here
+font goes in here
+
+FILES THAT NEVER CHANGE GO IN HERE
+Static folder does not go through thymeleaf
+These folders are not connected to the controller
+These files are public -- if they know the URL to get to them
+NO DELICATE INFORMATION IN THE STATIC FOLDER

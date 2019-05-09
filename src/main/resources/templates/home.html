@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <!--find the file path and replace with the id given in the fragment-->
+    <!--replace includes the elements and their attributes-->
+    <!--<link rel="icon" href="/static/img/welcomeDog1.png"/>-->
+  <th:block th:replace="fragments/head :: header('Home')"/>
+
+    <!--this just provides the fragment without elements and attributes-->
+    <!--<th:block th:include="fragments/head :: header('Home')"/>-->
+
+
+</head>
+<body>
+<th:block th:replace="fragments/navbar :: nav"/>
+<!--THE TH TAGS NEED TO BE IN SOME KIND OF TAG EXCEPT FOR THE TH:BLOCK-->
+<h1>Hello, <span th:text="${username}">default</span></h1>
+
+<!--should not show if you are not admin logic is in the home controller-->
+<button th:if="${admin}">Grade Students</button>
+
+
+<ul>
+    <!--identify the repetition for the loop-->
+    <!--where you do the th:each, is what will be looped-->
+    <!--give each individual item, ex: one name from names-->
+    <li th:each="name : ${names}">
+        <a href="#" th:text="${name}"></a>
+    </li>
+
+</ul>
+
+
+</body>
+</html>

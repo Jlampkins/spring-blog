@@ -1,0 +1,61 @@
+
+/*body{*/
+    /*background-image: url("/img/night.png");*/
+/*}*/
+
+#background {
+    background: rgba(256, 256, 256, 0.4);
+
+}
+
+
+textarea::placeholder {
+    text-align: center;
+
+}
+
+#input-post::placeholder{
+    padding-top: 3em;
+}
+
+.bg{
+
+
+    background-repeat: no-repeat;
+    background-size: cover;
+
+}
+
+
+#post-btn{
+    background: rgba(256,256,256,0.3);
+    width: 100%;
+}
+#input-title{
+    margin-top: 1.5em;
+    height: 1.5em;
+    width: 15em;
+    resize: none;
+    background: rgba(256,256,256,0.4);
+}
+
+#input-post{
+    height: 8em;
+    resize: none;
+    background: rgba(256,256,256,0.4);
+}
+
+#input-cat{
+    height: 1.5em;
+    width: 7em;
+    resize: none;
+    background: rgba(256,256,256,0.4);
+}
+.title-post{
+    margin-top: 2em;
+}
+
+
+.date{
+    font-weight: bold;
+}

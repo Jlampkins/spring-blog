@@ -1,0 +1,4 @@
+files in here go through thyme leaf
+
+these files are dynamic -- they have decisions connected to the controller
+CLOSE YOUR VOID TAGS!
