@@ -1,26 +1,27 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta charset="UTF-8"/>
-    <th:block th:replace="fragments/head :: header('Create')"/>
-</head>
-<body class="min-vh-100 bg">
-<th:block th:replace="fragments/navbar :: nav"/>
+    <head>
+        <meta charset="UTF-8"/>
+        <th:block th:replace="fragments/head :: header('Create')"/>
+    </head>
+    <body class="min-vh-100 background bg">
+        <th:block th:replace="fragments/navbar :: nav"/>
+        <div class=" contain-bg container login-contain">
+            <h2 style="text-align: center">Create a Post!</h2>
+            <form th:action="@{/posts/create}" th:method="post" th:object="${post}">
+                <div class="form-group">
+                    <input id="input-title" class="form-control" placeholder="title" th:field="*{title}"/>
+                    <br />
+                </div>
 
-<div id="background" class="container">
-
-    <h2>CREATE A NEW POST!</h2>
-
-    <form th:action="@{/posts/create}" th:method="post" th:object="${post}">
-        <textarea id="input-title" placeholder="title" th:field="*{title}"></textarea>
-        <br />
-        <textarea id="input-post" class="col post" placeholder="Tell me about it" th:field="*{body}"></textarea>
-        <br />
-        <button id="post-btn" type="submit">Post!!!</button>
-    </form>
-</div>
-
-
-<th:block th:replace="fragments/footer :: footer"/>
-</body>
+                <div class="form-group">
+                    <textarea class="col post input-post form-control" placeholder="Tell me about it" th:field="*{body}"></textarea>
+                    <br />
+                </div>
+                <button type="submit" class="btn btn-primary loginBtn">Post!!!</button>
+            </form>
+        </div>
+        <th:block th:replace="fragments/footer :: footer"/>
+        <script type="text/javascript" th:src="@{resources/static/js/index.js}"></script>
+    </body>
 </html>

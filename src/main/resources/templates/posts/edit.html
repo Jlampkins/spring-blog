@@ -1,23 +1,35 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta charset="UTF-8"/>
-    <th:block th:replace="fragments/head :: header('Edit')"/>
-</head>
-<body>
-<th:block th:replace="fragments/navbar :: nav"/>
-
-<h2>EDIT A POST!</h2>
-<form th:action="@{'/posts/edit/' + ${id}}" th:method="post" th:object="${post}">
-    Title:
-    <input th:field="*{title}" />
-    <br />
-    Description:
-    <textarea th:field="*{body}"></textarea>
-    <br />
-    <input type="submit" />
-</form>
+    <head>
+        <meta charset="UTF-8"/>
+        <th:block th:replace="fragments/head :: header('Edit')"/>
+    </head>
+    <body class="min-vh-100 background">
+        <th:block th:replace="fragments/navbar :: nav"/>
 
 
-</body>
+
+        <div class="contain-bg container login-contain">
+            <h2 style="text-align: center">Edit Your Post</h2>
+            <form th:action="@{'/posts/edit/' + ${id}}" th:method="post" th:object="${post}">
+                <div class="form-group">
+                    Title:
+                    <input class="form-control" th:field="*{title}" />
+                    <br/>
+                </div>
+                <div class="form-group">
+                    Description:
+                    <textarea class="form-control input-post" th:field="*{body}"></textarea>
+                    <br/>
+                </div>
+                <button id="post-btn" type="submit" class="btn btn-primary loginBtn">Submit Edit</button>
+            </form>
+        </div>
+
+
+
+
+
+
+    </body>
 </html>

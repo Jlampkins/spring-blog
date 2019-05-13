@@ -50,11 +50,11 @@ public class PostController {
     }
 
 
-    @GetMapping("/posts/delete")
-    @ResponseBody
-    protected String deletePost(){
-        return "please delete me.  end my suffering";
-    }
+//    @GetMapping("/posts/delete")
+//    @ResponseBody
+//    protected String deletePost(){
+//        return "please delete me.  end my suffering";
+//    }
 
     @GetMapping("/posts/delete/{id}")
     protected String deletePost(@PathVariable long id){

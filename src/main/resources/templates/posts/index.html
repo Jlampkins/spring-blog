@@ -2,26 +2,20 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
     <head>
         <meta charset="UTF-8"/>
-        <th:block th:replace="fragments/head :: header('Home')"/>
+        <th:block th:replace="fragments/head :: header('All Posts')"/>
     </head>
-    <body>
+    <body class="background">
         <th:block th:replace="fragments/navbar :: nav"/>
         <div class="container">
-
-        <!--<th:block th:each="post : ${posts}">-->
-             <!--<h3 th:text="${post.title}"></h3>-->
-            <!--<h5 th:text="${post.body}"></h5>-->
-        <!--<button><a th:href="@{'/posts/edit/' + ${post.getId()}}">Edit</a></button>-->
-            <!--<button><a th:href="@{'/posts/delete/' + ${post.getId()}}">Delete</a></button>-->
-            <!--&lt;!&ndash;<h3 th:text="${post.authorEmail}"></h3>&ndash;&gt;-->
-        <!--</th:block>-->
-
+            <div class="contain-bg card">
+                <h2 style="text-align: center;">Viewing all Posts</h2>
+            </div>
             <th:block th:each="post : ${posts}">
                 <!--<div class="col-md-4">-->
-                    <div class="card" style="text-align: center; width: 100%">
+                    <div class="contain-bg card" style="text-align: center; width: 100%">
                         <div class="card-body">
                             <h5 class="card-title" th:text="${post.title}"></h5>
-                            <h6 class="card-subtitle mb-2 text-muted" th:text="'By: ' + ${post.user.getUsername()}"></h6>
+                            <h6 class="card-subtitle mb-2" th:text="'By: ' + ${post.user.getUsername()}"></h6>
                             <p class="card-text" th:text="${post.body}"></p>
                         </div>
                     </div>

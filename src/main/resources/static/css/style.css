@@ -1,6 +1,37 @@
-#background .background {
-    background: rgba(256, 256, 256, 0.4);
 
+.contain-bg {
+    background: rgba(256, 256, 256, 0.4);
+}
+
+
+
+.user-contain {
+    width: 400px;
+    margin-top: 10%;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.login-contain{
+    width: 600px;
+    margin-top: 10%;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+
+.background {
+    background-image: url("/img/night.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    /*background: rgba(256, 256, 256, 0.4);*/
+}
+
+
+
+.loginBtn{
+    width: 100%;
+    margin-bottom: 15px;
 }
 
 textarea::placeholder {
@@ -8,7 +39,9 @@ textarea::placeholder {
 
 }
 
-
+.navbar {
+    background: none;
+}
 
 .input-post::placeholder{
     padding-top: 3em;
@@ -21,30 +54,25 @@ textarea::placeholder {
 }
 
 
-.post-btn{
-    background: rgba(256,256,256,0.3);
-    width: 100%;
-}
-.input-title{
-    margin-top: 1.5em;
-    height: 1.5em;
-    width: 15em;
-    resize: none;
-    background: rgba(256,256,256,0.4);
-}
+/*.post-btn{*/
+    /*background: rgba(256,256,256,0.3);*/
+    /*width: 100%;*/
+/*}*/
+/*#input-title{*/
+    /*margin-top: 1.5em;*/
+    /*height: 1.5em;*/
+    /*width: 15em;*/
+    /*resize: none;*/
+    /*background: rgba(256,256,256,0.4);*/
+/*}*/
 
 .input-post{
     height: 8em;
     resize: none;
-    background: rgba(256,256,256,0.4);
+    /*background: rgba(256,256,256,0.4);*/
 }
 
-#input-cat{
-    height: 1.5em;
-    width: 7em;
-    resize: none;
-    background: rgba(256,256,256,0.4);
-}
+
 .title-post{
     margin-top: 2em;
 }
