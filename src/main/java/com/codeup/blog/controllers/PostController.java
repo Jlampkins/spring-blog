@@ -5,6 +5,7 @@ import com.codeup.blog.repositories.PostRepository;
 import com.codeup.blog.models.User;
 import com.codeup.blog.repositories.UserRepository;
 import com.codeup.blog.services.EmailService;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -35,16 +36,17 @@ public class PostController {
         return "/posts/create";
     }
 
-
     @PostMapping("/posts/create")
     public String createPost(@ModelAttribute Post postToSave){
-        User user = userCRUD.findOne(2L);
-        postToSave.setUser(user);
+        User sessionUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        User userDB = userCRUD.findOne(sessionUser.getId());
+        postToSave.setUser(userDB);
         //you can obtain properties from a saved item
         Post savedPost = postCRUD.save(postToSave);
         //this will send an automated email when creating a post.
-        emailService.prepareAndSend(savedPost, "Hello, Mother.  I have created an automated email system", "The post has been created successfully and you may find it with the ID of " + savedPost.getId());
-        return "redirect:/posts/" + savedPost.getId();
+//        emailService.prepareAndSend(savedPost, "Hello, Mother.  I have created an automated email system", "The post has been created successfully and you may find it with the ID of " + savedPost.getId());
+//        return "redirect:/posts/" + savedPost.getId();
+        return "redirect:/posts";
     }
 
 
@@ -55,11 +57,17 @@ public class PostController {
     }
 
     @GetMapping("/posts/delete/{id}")
-    @ResponseBody
     protected String deletePost(@PathVariable long id){
         postCRUD.delete(id);
-        return "The post has been deleted";
+        return "redirect:/posts/profile";
     }
+
+//    @GetMapping("/posts/profile/{id}")
+//    protected String viewUserPosts(@PathVariable long id, Model viewModel){
+//        Post post = postCRUD.findOne(id);
+//
+//        return "/posts/profile";
+//    }
 
 //    @GetMapping("/posts/edit")
 //    @ResponseBody
@@ -76,18 +84,24 @@ public class PostController {
 
     @PostMapping("/posts/edit/{id}")
     public String editPost(@ModelAttribute Post postToEdit){
-        postToEdit.setUser(userCRUD.findOne(1L));
+        User sessionUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        User userDB = userCRUD.findOne(sessionUser.getId());
+        postToEdit.setUser(userDB);
         postCRUD.save(postToEdit);
-        return "redirect:/posts/" + postToEdit.getId();
+//        return "redirect:/posts/" + postToEdit.getId();
+        return "redirect:/posts/profile";
+    }
+
+    @GetMapping("/posts/profile")
+    public String showIndivPost(Model viewModel) {
+        User sessionUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        User userDB = userCRUD.findOne(sessionUser.getId());
+        long user = sessionUser.getId();
+        viewModel.addAttribute("posts", postCRUD.findAllByUserId(user));
+        return "posts/profile";
     }
 
 
-    @GetMapping("/posts/{id}")
-    public String showIndivPost(@PathVariable long id, Model viewModel) {
-        Post post = postCRUD.findOne(id);
-        viewModel.addAttribute("post", post);
-        return "posts/show";
-    }
 
 
 

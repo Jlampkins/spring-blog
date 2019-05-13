@@ -1,37 +1,31 @@
-
-/*body{*/
-    /*background-image: url("/img/night.png");*/
-/*}*/
-
-#background {
+#background .background {
     background: rgba(256, 256, 256, 0.4);
 
 }
-
 
 textarea::placeholder {
     text-align: center;
 
 }
 
-#input-post::placeholder{
+
+
+.input-post::placeholder{
     padding-top: 3em;
 }
 
 .bg{
-
-
     background-repeat: no-repeat;
     background-size: cover;
 
 }
 
 
-#post-btn{
+.post-btn{
     background: rgba(256,256,256,0.3);
     width: 100%;
 }
-#input-title{
+.input-title{
     margin-top: 1.5em;
     height: 1.5em;
     width: 15em;
@@ -39,7 +33,7 @@ textarea::placeholder {
     background: rgba(256,256,256,0.4);
 }
 
-#input-post{
+.input-post{
     height: 8em;
     resize: none;
     background: rgba(256,256,256,0.4);

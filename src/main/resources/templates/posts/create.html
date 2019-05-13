@@ -12,10 +12,8 @@
     <h2>CREATE A NEW POST!</h2>
 
     <form th:action="@{/posts/create}" th:method="post" th:object="${post}">
-        Title:
-        <textarea id="input-title" placeholder="Title" th:field="*{title}"></textarea>
+        <textarea id="input-title" placeholder="title" th:field="*{title}"></textarea>
         <br />
-        Description:
         <textarea id="input-post" class="col post" placeholder="Tell me about it" th:field="*{body}"></textarea>
         <br />
         <button id="post-btn" type="submit">Post!!!</button>
