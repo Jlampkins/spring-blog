@@ -33,7 +33,7 @@ public class PostController {
     @GetMapping("/posts/create")
     public String showCreateForm(Model model){
         model.addAttribute("post", new Post());
-        return "/posts/create";
+        return "posts/create";
     }
 
     @PostMapping("/posts/create")
@@ -79,7 +79,7 @@ public class PostController {
     protected String editPost(@PathVariable long id, Model model){
         Post post = postCRUD.findOne(id);
         model.addAttribute("post", post);
-            return "/posts/edit";
+            return "posts/edit";
     }
 
     @PostMapping("/posts/edit/{id}")
